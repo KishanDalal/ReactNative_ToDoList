@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, Touchable, TouchableOpacity } from 'react-native'
+import { View, Text, StyleSheet, Touchable, TouchableOpacity, KeyboardAvoidingView } from 'react-native'
 
 const Task = (props) => {
 
@@ -14,6 +14,8 @@ const Task = (props) => {
 
             <View style={styles.circular}></View>
         </View>
+
+
     )
 
 }
