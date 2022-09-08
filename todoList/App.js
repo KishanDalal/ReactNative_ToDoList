@@ -10,11 +10,17 @@ export default function App() {
 
   const handleAddTask = () => {
     Keyboard.dismiss();
-    setTaskItems([...taskItems, task]);
-    {/* Takes everything inside the task then appends the task to it. */}
+    setTaskItems([...taskItems, task])
     setTask(null);
+    
   }
 
+  const completeTask = (index) => 
+  {
+    let itemsCopy = [...taskItems];
+    itemsCopy.splice(index, 1);
+    setTaskItems(itemsCopy)
+  }
 
 
   return (
@@ -28,7 +34,11 @@ export default function App() {
           {/* Tasks will go here */}
           {
             taskItems.map((item, index) => {
-              return <Task key={index} text={item} />
+              return (
+                <TouchableOpacity key={index}  onPress={() => completeTask(index)}>
+                  <Task text={item} />
+                </TouchableOpacity>
+              ) 
             })
           }
 
@@ -107,4 +117,5 @@ addWrapper: {
 addText : {},
 
 });
+
 
